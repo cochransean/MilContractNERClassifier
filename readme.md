@@ -15,3 +15,6 @@ java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer [port?]
 If no value for port is provided, port 9000 will be used by default. You can then test your server by visiting
 
 http://localhost:9000/
+
+### Note: this uses the Standford Core NLP wrapper from
+https://github.com/smilli/py-corenlp
