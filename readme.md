@@ -16,5 +16,8 @@ If no value for port is provided, port 9000 will be used by default. You can the
 
 http://localhost:9000/
 
+### There were initially issues with unprintable UNICODE characters, so ensure that all input is sanitized down to printable characters.
+
 ### Note: this uses the Standford Core NLP wrapper from
 https://github.com/smilli/py-corenlp
+

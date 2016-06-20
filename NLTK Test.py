@@ -31,7 +31,7 @@ def ner_tag_text():
         'ORGANIZATION': 'organization',
         'MONEY': 'value',
         'LOCATION': 'location',
-        'DATE': 'date'
+        'DATE': 'dates_in_announcement'
     }
 
     # loop through each press release
@@ -62,7 +62,7 @@ def ner_tag_text():
 
             # create dict to store output
             entry = dict()
-            entry.update({'press_release': contract, 'date': date['date']})
+            entry.update({'press_release': contract, 'date_of_announcement': date['date']})
             # track current list index for each output type
             output_index = {}
             for output in classifiers_to_output.values():
@@ -84,8 +84,7 @@ def ner_tag_text():
                             if next_token['ner'] != classifier:
                                 output_index[output] += 1
                 tagged_contract.append(entry)
-            # add pertinent data to out
-            print(entry)
+            # add pertinent data to output
             results.append(entry)
 
 
@@ -93,17 +92,15 @@ def save_results():
     # export data
     try:
         with open('consolidated_contracts_ner_tags.csv', 'w') as csvfile:
-            fieldnames = ['id', 'date', 'organization', 'value', 'location', 'contracting_activity',
-                          'announcement', 'contracting_activity_location']
+            fieldnames = ['id', 'date', 'organization', 'value', 'location', 'press_release']
             contract_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             contract_writer.writeheader()
+            unique_id = 0
             for result in results:
-                unique_id = 0
-                contract_writer.writerow({'date': result['date'], 'organization': result['organization'],
-                                          'value': result['value'], 'location': result['location'],
-                                          'contracting_activity': result['contracting_activity'],
-                                          'contracting_activity_location': result['contracting_activity_location'],
-                                          'announcement': result['announcement'], 'id': unique_id})
+                contract_writer.writerow({'dates_in_announcement': result['dates_in_announcement'],
+                                          'organization': result['organization'], 'value': result['value'],
+                                          'location': result['location'], 'press_release': result['press_release'],
+                                          'id': unique_id, 'date_of_announcement': result['date_of_announcement']})
                 unique_id += unique_id
     except IOError:
         print("Error exporting data.")
