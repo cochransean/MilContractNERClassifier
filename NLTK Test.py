@@ -37,14 +37,6 @@ def ner_tag_text():
     # loop through each press release
     for date in dates:
         for contract in date['announcements']:
-            # get rid of troublesome unicode characters
-            contract = re.sub("[\x92\x93\x94]", "", contract)
-            contract = contract.replace("’", "'")
-            contract = contract.replace("“", '"')
-            contract = contract.replace("”", '"')
-            contract = contract.replace("–", '-')
-            contract = contract.replace("—", '-')
-            contract = contract.replace("‑", '-')
 
             tagged_contract = []
             annotated_text = None
@@ -93,6 +85,7 @@ def ner_tag_text():
                                 output_index[output] += 1
                 tagged_contract.append(entry)
             # add pertinent data to out
+            print(entry)
             results.append(entry)
 
 
