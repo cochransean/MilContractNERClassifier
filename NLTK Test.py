@@ -1,7 +1,7 @@
 import csv
 from pycorenlp import StanfordCoreNLP
 import time
-import re
+import json
 import ast
 
 # TODO fix Sep 11, 2006 to Nov 15, 2006 and November 29, 2006 to Dec 4, 2006 data (not separated)
@@ -89,10 +89,14 @@ def ner_tag_text():
 
 
 def save_results():
-    # export data
+    # export data as csv and json
+    with open('consolidated_contracts_ner_tags_json.txt', 'w') as jsonfile:
+        json.dump(results, jsonfile)
+
     try:
         with open('consolidated_contracts_ner_tags.csv', 'w') as csvfile:
-            fieldnames = ['id', 'date', 'organization', 'value', 'location', 'press_release']
+            fieldnames = ['id', 'organization', 'value', 'date_of_announcement', 'location', 'press_release',
+                          'dates_in_announcement']
             contract_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             contract_writer.writeheader()
             unique_id = 0
