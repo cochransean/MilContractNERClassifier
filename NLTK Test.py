@@ -105,7 +105,7 @@ def save_results():
                                           'organization': result['organization'], 'value': result['value'],
                                           'location': result['location'], 'press_release': result['press_release'],
                                           'id': unique_id, 'date_of_announcement': result['date_of_announcement']})
-                unique_id += unique_id
+                unique_id += 1
     except IOError:
         print("Error exporting data.")
     else:
