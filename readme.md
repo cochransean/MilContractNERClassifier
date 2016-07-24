@@ -1,4 +1,4 @@
-### Goal: To classify postings to the Department of Defense's Contract Press Release page by organization, date, and monetary value, allowing for more data-driven analysis.
+## Goal: To classify postings to the Department of Defense's Contract Press Release page by organization, date, and monetary value, allowing for more data-driven analysis.
 
 The Jupyter notebook shows the workflow and steps that were taken to split up the messy, scraped data from [this project](https://github.com/cochransean/DefenseContractsScraper).
 
@@ -6,7 +6,7 @@ The Jupyter notebook shows the workflow and steps that were taken to split up th
 
 The tagged, most current data is in the files `consolidated_contracts_ner_tags.csv` and `consolidated_contracts_ner_tags_json.txt`.
 
-### Development Environment Setup:
+## Development Environment Setup:
 #### Install Stanford's Core NLP from their website
 `http://stanfordnlp.github.io/CoreNLP/`
 
