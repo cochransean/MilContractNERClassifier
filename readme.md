@@ -9,7 +9,7 @@ Stanford CoreNLP ships with a built-in server, and requires only the CoreNLP dep
 #### Set up your classpath. For example, to add all jars in the current directory tree:
 export CLASSPATH="`find . -name '*.jar'`"
 
-##### Run the server (from the core NLP directory)
+#### Run the server (from the core NLP directory)
 `java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer [port?]`
 If no value for port is provided, port 9000 will be used by default. You can then test your server by visiting
 
