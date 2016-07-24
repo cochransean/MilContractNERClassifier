@@ -1,12 +1,12 @@
 ### Goal: To classify postings to the Department of Defense's Contract Press Release page by organization, date, and monetary value, allowing for more data-driven analysis.
 
-##### Install Stanford's Core NLP from their website
+#### Install Stanford's Core NLP from their website
 `http://stanfordnlp.github.io/CoreNLP/`
 
-##### Stanford Core NLP: Getting Started
-Stanford CoreNLP ships with a built-in server, and requires only the CoreNLP dependencies. To run this server, simply run:
+#### Stanford Core NLP: Getting Started
+Stanford CoreNLP ships with a built-in server, and requires only the CoreNLP dependencies. To run this server, simply:
 
-### Set up your classpath. For example, to add all jars in the current directory tree:
+#### Set up your classpath. For example, to add all jars in the current directory tree:
 export CLASSPATH="`find . -name '*.jar'`"
 
 ##### Run the server (from the core NLP directory)
